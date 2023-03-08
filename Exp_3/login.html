@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            Login Page
+        </title>
+        <script language="javascript">
+            function validate()
+            {
+                var f=1;
+                var pnam=document.forms["loginform"]["pname"].value;
+                var pwd=document.forms["loginform"]["pswd"].value;
+                if(pnam==""||pwd=="")
+                {
+                    f=0;
+                }
+                else
+                {
+                    f=1;
+                }
+                
+                if(pnam=="")
+                {
+                    alert("Enter username");
+                    return false;
+                }
+                else if(pwd=="")
+                {
+                    alert("Enter password");
+                    return false;
+                }
+                else if(pwd.length<8)
+                {
+                    alert("Enter valid password");
+                    return false;
+                }
+                else if(f==1)
+                {
+                    alert("valid input");
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body bgcolor="#16452A">
+        <form name="loginform">
+        <div align="center" >
+            <h style = " font-size:1cm; font-family: 'Algerian', Times, serif; color: rgb(1, 0, 3); ">LOGIN FORM</h><br/><br/>
+            USERNAME : <input type="text"  name="pname"><br/><br/>
+            PASSWORD : <input type="password"  name="pswd"><br/><br/>
+        </div>
+        <div align="center">
+            <input type="submit" value="Login" onClick="return validate()">
+            <input type="reset" value="Reset">
+            <input type="button" value="Register" onClick="window.location.href='register.html';">
+
+        </div>
+    </form>
+    </body>
+</html>
