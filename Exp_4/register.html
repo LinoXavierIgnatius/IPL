@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register</title>
+        <script>
+            function registeration() {
+                var na = document.forms["Register"]["name"].value;
+                var da = document.forms["Register"]["date"].value;
+                var em = document.forms["Register"]["email"].value;
+                var ge = document.forms["Register"]["gender"].value;
+                var ph = document.forms["Register"]["phone"].value;
+                var pa = document.forms["Register"]["pwd"].value;
+                var ad = document.forms["Register"]["Adhaar"].value;
+                var pan = document.forms["Register"]["pan"].value;
+                var id = document.forms["Register"]["id"].value;
+                var ul = document.forms["Register"]["upload"].value;
+
+                var adFormat = /^\d{12}$/;
+                var panFormat = /[A-Z]{5}[0-9]{4}[A-Z]{1}/;
+                const allowedImageTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+                const maxFileSize = 1024 * 1024; // 1MB
+
+                if (na == "" && da == "" && em == "" && ge == "" && ph == "" && pa == "" && ad == "" && pan == "" && id == "" && ul == "" ) {
+                alert("Enter Details");
+                return false;
+            }
+            else if (na == ""){
+                alert("Enter Name");
+                return false;
+            }   
+            else if (da == ""){
+                alert("Enter Date");
+                return false;
+            } 
+             else if(em == ""){
+                alert("Enter mail Id");
+                return false;
+            }
+            else if (ge == ""){
+                alert("Enter gender");
+                return false;
+            } 
+            else if (ph == ""){
+                alert("Enter Pnone number! ");
+                return false;
+            }
+            else if (ad == ""){
+                alert("Enter Adhaar No.");
+                return false;
+            }
+            else if(!adFormat.test(ad)){
+                alert("Please enter valid adhaar no.")
+                return false;
+            }
+            else if (pan == ""){
+                alert("Enter PAN No.");
+                return false;
+            } 
+
+            else if(!panFormat.test(pan)){
+                alert("Please enter valid PAN No.")
+                return false;
+            }
+
+            else if (id == ""){
+                alert("select id");
+                return false;
+            }
+
+            else if (ul == ""){
+                alert("Proof of ID required");
+                return false;
+            }
+
+            else if (upload) {
+                if (upload.size > maxFileSize) {
+                    alert(" image size is too large. Maximum size is 1MB.");
+                    return false;
+                }
+                if (!allowedImageTypes.includes(upload.type)) {
+                    alert("Invalid  image type. Please upload a JPG, JPEG or PNG file.");
+                    return false;
+                }
+            }
+
+
+            else if (pa == ""){
+                alert("Enter Password");
+                return false;
+            } 
+            
+            else if (pa.length < 6){
+                alert("password must contain atleast 6 characterss! ");
+                return false;
+            }
+        }
+
+        </script>
+    </head>
+    <body bgcolor="skyblue">
+        <form name="Register" onsubmit="return registeration()" >
+        <center>
+            <h1>Register Here.</h1>
+            <br>
+            <br>
+            <h3>Details</h3>
+            <br>
+            <table  style="border-spacing: 5pt;">
+                <tr>
+                    <td>Name : </td>
+                    <td><input type="text" name="name" placeholder="Enter Name"></td>
+                </tr>
+                <tr>
+                    <td>Date Of Birth : </td>
+                    <td><input type="date" name="date"></td>
+                </tr>
+                <tr>
+                    <td>Email : </td>
+                    <td><input type="email" name="email"></td>
+                </tr>
+                <tr>
+                    <td>Gender : </td>
+                    <td>
+                        <select name="gender">
+                            <option value="">Select gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone No. : </td>
+                    <td><input type="tel" name="phone" ></td>
+                </tr> 
+                <tr>
+                    <td>Adhaar No.:</td>
+                    <td><input type="text" name="Adhaar"></td>
+                </tr>   
+                <tr>
+                    <td>PAN No.:</td>
+                    <td><input type="text" name="pan"></td>
+                </tr>
+                <tr>
+                    <td>Government Issued ID</td>
+                    <td>
+                        <select name="id">
+                            <option value="">Select id</option>
+                            <option value="ration">Ration Card</option>
+                            <option value="dr license">Driving License</option>
+                            <option value="Passport">Passport</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ID Proof(JPEG,png,jpg)</td>
+                    <td><input type="file" name="upload"></td>                
+                   
+                </tr>
+                <tr>
+                    <td>Password :</td>
+                    <td><input type="password" name="pwd"></td>
+                </tr>      
+        </table>
+        <br><br>
+        <div>
+            <input type="submit" name="submit" formaction="login.html">&nbsp;&nbsp;&nbsp;
+            <input type="reset" name="reset";>
+        </div>
+        </center>
+        </form>
+    </body>
+</html>

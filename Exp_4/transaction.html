@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions</title>
+    <style>
+        body {background-color: beige;}
+    </style>
+    <script>
+        let balance = 0;
+            let transactions = [];
+
+            function updateReset(balance){
+                document.getElementById("balance").innerHTML = balance;
+                document.getElementById("deposit").value = "";
+                document.getElementById("withdraw").value = "";
+            }
+
+            function deposit() {
+                let amount = parseInt(document.getElementById("deposit").value);
+                if (amount <= 0 || isNaN(amount)) {
+                    alert("Please enter a valid amount");
+                    return;
+                }
+                balance += amount;
+                transactions.push(`Deposit: +${amount}`);
+                updateReset(balance);
+                alert(`Deposit of ${amount} successful. Current balance: ${balance}`);
+            }
+
+            function withdraw() {
+                let amount = parseInt(document.getElementById("withdraw").value);
+                if (amount <= 0 || isNaN(amount) || amount > balance) {
+                    alert("Please enter a valid amount");
+                    return;
+                }
+                balance -= amount;
+                transactions.push(`Withdrawal: -${amount}`);
+                updateReset(balance);
+                alert(`Withdrawal of ${amount} successful. Current balance: ${balance}`);
+            }
+
+            function displayStatement() {
+                let table = document.getElementById("table");
+                table.innerHTML = "";
+                let headerRow = table.insertRow(0);
+                headerRow.insertCell(0).innerHTML = "<b>Date</b>&nbsp;";
+                headerRow.insertCell(1).innerHTML = "<b>Description</b>";
+                headerRow.insertCell(2).innerHTML = "&nbsp;<b>Amount</b>";
+                for (let i = 0; i < transactions.length; i++) {
+                    let row = table.insertRow(i+1);
+                    let transaction = transactions[i].split(": ");
+                    row.insertCell(0).innerHTML = new Date().toLocaleDateString();
+                    row.insertCell(1).innerHTML = transaction[0];
+                    row.insertCell(2).innerHTML = transaction[1];
+                }
+            }
+    </script>
+</head>
+
+<body>
+    <div>
+        <center>
+            <h1>Bank of Baroda</h1>
+       
+            <h2>Welcome!</h2>
+        </center>
+    </div>
+    <div>
+        <center>
+        <h2>Account Balance: <span id="balance">0</span></h2>
+        <p>Deposit Amount:</p>
+        <input type="number" id="deposit" placeholder="Enter amount">
+        <button onclick="deposit()">Deposit</button><br>
+        <p>Withdraw Amount:</p>
+        <input type="number" id="withdraw" placeholder="Enter amount">
+        <button onclick="withdraw()">Withdraw</button><br>
+        <p>Bank Statement</p>
+        <button onclick="displayStatement()">Display Statement</button><br><br>
+        <table id="table"></table>
+    </center>
+    <br><br><center><a href="login.html"><button>Logout</button></a></center>
+
+</body>
+
+</html>
