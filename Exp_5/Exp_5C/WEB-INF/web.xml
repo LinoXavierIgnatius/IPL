@@ -1,0 +1,9 @@
+<servlet>
+   <servlet-name>HitCounter</servlet-name>
+   <servlet-class>HitCounter</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>HitCounter</servlet-name>
+   <url-pattern>/HitCounter</url-pattern>
+</servlet-mapping>
