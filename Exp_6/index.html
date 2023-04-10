@@ -1,0 +1,42 @@
+<html >
+<head>
+    <title>Database</title>
+</head>
+
+<body>
+    <h1><center>Create</center></h1>
+    <form action="./create" method="post" align="center">
+        <label for="id">Register no.:</label>
+        <input type="text" id="id" name="id"><br><br>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="dept">Department:</label>
+        <input type="text" id="dept" name="dept"><br><br>
+
+        <label for="cgpa">CGPA:</label>
+        <input type="text" id="cgpa" name="cgpa"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <h1><center>Display</center></h1>
+    <center><a href="./display">Display all student details</a></center>
+
+    <h1><center>Update</center></h1>
+    <form method="get" action="./update" align="center">
+        Register no.: <input type="text" id="id" name="id"><br><br>
+        Name:<input type="text" name="name"></input><br><br>
+        <input type="submit" value="Submit"></input>
+    </form>
+
+    <h1><center>Delete</center></h1>
+    <form action="./delete" method="post" align="center">
+        <label for="id">Register no.:</label>
+        <input type="text" id="id" name="id"><br><br>
+        <input type="submit" value="Delete">
+    </form>
+
+</body>
+</html>
