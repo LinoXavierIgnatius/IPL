@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+  <user id="1">
+    <Name>Ram</Name>
+    <Dob>18-3-2001</Dob>
+    <Style>Folk</Style>
+    <Age>22</Age>    
+  </user>
+  <user id="2">
+    <Name>Peter</Name>
+    <Dob>8-7-2005</Dob>
+    <Style>Western</Style>
+    <Age>18</Age>    
+  </user>
+  <user id="3">
+    <Name>Sharik</Name>
+    <Dob>6-2-1999</Dob>
+    <Style>Hiphop</Style>
+    <Age>24</Age>     
+  </user>
+  <user id="4">
+    <Name>Shalini</Name>
+    <Dob>4-9-2007</Dob>
+    <Style>Classical</Style>
+    <Age>15</Age>      
+  </user>
+</users>
